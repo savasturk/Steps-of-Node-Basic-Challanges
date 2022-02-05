@@ -11,6 +11,10 @@ module.exports = function (sequelize, DataTypes) {
         stockCount: {
             type: DataTypes.INTEGER,
             allowNull: false
+        },
+        price: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         }
     })
 }
