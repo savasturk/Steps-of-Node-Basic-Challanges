@@ -1,13 +1,7 @@
 // Helped from NuckChorris/express-fibonacci repo on github!
 //  Thanks!!!
 
-module.exports = function (number) {
-    function fibonacci(number) {
-        if (number < 2) {
-            return number;
-        }
-        return fibonacci(number - 1) + fibonacci(number - 2);
-    }
+//module.exports = function (number) {
   /*function fibonacci(num, finish) {
     if (num < 2) {
       finish(1);
@@ -27,4 +21,16 @@ module.exports = function (number) {
       next();
     });
 	}*/
+//}
+
+function fibonacci(number) {
+  if (number < 2) {
+      return number;
+  }
+  return fibonacci(number - 1) + fibonacci(number - 2);
 }
+
+process.on('message', number => {
+  var result = fibonacci(number);
+  process.send(result);
+})
