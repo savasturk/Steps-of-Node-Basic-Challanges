@@ -134,4 +134,148 @@ const joined = emotions.join('<=>');
 console.log(joined);
 console.log([].join()); // returns ""*/
 
-// TODO: fill!
+//const colors = ['red', 'blue', 'green'];
+//colors.fill('pink');
+// fills array with static value, change all elements or a few selected items
+//colors.fill('pink', 1,3);
+// first index include, last index not include!
+//console.log(colors);
+
+/*const names = ['tom', 'alex', 'bob', 'tom'];
+console.log(names.indexOf('tom'));
+// know the index position of an element in array
+// return the index of the first occurrence of an element in the array, if not found returns -1
+console.log(names.lastIndexOf('tom'));
+//find the index of the last occurrence of an element in the array
+console.log(names.indexOf('rob'));*/
+
+/*const names = ['tom', 'alex', 'bob'];
+console.log('Before reverse names: ' + names);
+names.reverse();
+// reverse the elements position in the array
+console.log('After reverse names: ' + names);
+// reverse method modifies the original */
+
+/*const names = ['tom', 'alex', 'bob'];
+console.log('Before sort names: ' + names);
+names.sort();
+// converts the elements into strings then sort default ascending order
+// sort method modifies orginal array
+console.log('After sort names: ' + names);*/
+//const numbers = [23, 5, 100, 56, 9, 13, 37, 10, 1];
+/*numbers.sort();
+console.log('Result of the original sort function: ' + numbers); // this convert element to a string because output NOT expected
+function ascendingComp(a, b) {
+    return (a - b);
+}
+numbers.sort(ascendingComp);
+console.log('Result of ascending order sort function: ' + numbers);*/
+// different type of sorting
+/*console.log(numbers);
+numbers.sort(function (a, b) {
+    return (a - b);
+})
+console.log(numbers)*/
+/*console.log('Original numbers: ' + numbers);
+//with arrow function ascending order
+numbers.sort((a, b) => (a - b));
+console.log('Ascending order of numbers: ' + numbers);
+numbers.sort((a, b) => (b - a));
+console.log('Descending order of numbers: ' + numbers);*/
+
+// splice method add, update and remove elements in an array.
+// splice return an array of the modifided the original array
+//const names = ['tom', 'alex', 'bob'];
+/*names.splice(1, 0, 'zack');
+// 1 = start index, 0: delete count, 'zack': string
+// this is not remove!
+console.log(names);*/
+/*const deleted = names.splice(2, 1, 'zack');
+console.log(deleted);//[ 'bob' ]
+console.log(names);// [ 'tom', 'alex', 'zack' ]*/
+
+// STATIC ARRAY METHODS
+/*var foo = 'foo';
+Array.from(foo).forEach((i) => {
+    console.log(i);
+})
+// Array.from converts an array like object to an array*/
+/*var mixedArray = Array.of(2, false, 'test', {'name': 'Alex'});
+console.log(mixedArray);*/
+
+//ARRAY ITERATOR METHODS
+let students = [
+    {
+       'id': 001,
+       'f_name': 'Alex',
+       'l_name': 'B',
+       'gender': 'M',
+       'married': false,
+       'age': 22,
+       'paid': 250,  
+       'courses': ['JavaScript', 'React']
+    },
+    {
+       'id': 002,
+       'f_name': 'Ibrahim',
+       'l_name': 'M',
+       'gender': 'M',
+       'married': true,
+       'age': 32,
+       'paid': 150,  
+       'courses': ['JavaScript', 'PWA']
+    },
+    {
+       'id': 003,
+       'f_name': 'Rubi',
+       'l_name': 'S',
+       'gender': 'F',
+       'married': false,
+       'age': 27,
+       'paid': 350,  
+       'courses': ['Blogging', 'React', 'UX']
+    },
+    {
+       'id': 004,
+       'f_name': 'Zack',
+       'l_name': 'F',
+       'gender': 'M',
+       'married': true,
+       'age': 36,
+       'paid': 250,  
+       'courses': ['Git', 'React', 'Branding']
+    } 
+ ];
+/*const femaleStudents = students.filter((element, index) => {
+    return element.gender === 'F';
+})
+// filter methods create a new array with all the elements 
+// that satisfies the condition mentioned in the function
+console.log(femaleStudents);*/
+
+/*const fullNames = students.map((element, index) => {
+    return {'fullName: ': element['f_name'] + ' ' + element['l_name']}
+});
+// map method create a new array by iterating through the elements and applying logic 
+// provided in the function
+console.log(fullNames);*/
+
+/*const total = students.reduce(
+    (accumulator, student) => {
+        accumulator += student.paid;
+        return accumulator;
+    }, 0);
+// reducer function on each of the array elements and returns an output value
+// applied reducer function on students
+// in above
+//   ||
+//    v
+// init accumulator = 0, reduce method for each array's object
+
+console.log(total);*/
+
+// TODO SOME!
+let hasStudentsBelow30 = students.some((element, index) => {
+    return 
+})
+
