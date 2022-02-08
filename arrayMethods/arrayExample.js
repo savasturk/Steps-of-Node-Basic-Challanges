@@ -275,7 +275,26 @@ console.log(fullNames);*/
 console.log(total);*/
 
 // TODO SOME!
-let hasStudentsBelow30 = students.some((element, index) => {
-    return 
-})
+/*let hasStudentsBelow30 = students.some((element, index) => {
+    return element.age < 30;
+});
+// some method return booleand value based on at least one element in the array passing the condition in the function!
+console.log(hasStudentsBelow30);*/
+
+/*const student = students.find((element, index) => {
+    return element.age < 30;
+});
+// find method returns the first matched element from the array that satisfies the condition
+console.log(student);*/
+
+/*const atLeastTwoCourses = students.every((elements, index) => {
+    return elements.courses.length >= 2;
+});
+// every method detects if every element of the array satisfies the condition passed in the function
+// return boolean value
+console.log(atLeastTwoCourses);*/
+
+/*const junkFoodILove = ['🥖', '🍔', '🍟', '🍕', '🌭', '🥪', '🌮', '🍿'];
+console.log(junkFoodILove.at(-9));// return undefined
+// at method would help you access the elements of an array using a negative index number!*/
 
