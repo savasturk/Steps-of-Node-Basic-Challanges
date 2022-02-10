@@ -1,1 +1,1 @@
-"Helped from caolan.github.io" 
+"Helped from caolan.github.io && npmjs.com && riptutorial.com" 
