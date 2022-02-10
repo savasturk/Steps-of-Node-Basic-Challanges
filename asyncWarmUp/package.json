@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "async": "^3.2.3",
-    "async-waterfall": "^0.1.5"
+    "async-waterfall": "^0.1.5",
+    "require": "^2.4.20"
   },
   "type": "module"
 }

@@ -1,10 +1,11 @@
-import waterfall from 'async/waterfall'
-//var waterfall = require('async-waterfall');
+import async from 'async'
+//const async = require('async');
 // each passing their results to the next in array iff pass an error own callback
 // next function is not executed
 async.waterfall([
     function(callback) {
         callback(null, 'one', 'two');
+        //debugger;
     }, 
     function(arg1, arg2,callback) {
         // arg1 now equals 'one' and arg2 now equals 'two'
