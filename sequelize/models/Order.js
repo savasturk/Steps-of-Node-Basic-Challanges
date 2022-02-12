@@ -1,23 +1,21 @@
-module.exports = function(sequelize, DataTypes) {
-    return sequelize.define('Order', {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
+var Sequelize = require('sequelize');
+
+ module.exports =  function (sequelize) {
+     return sequelize.define('Order', {
         name: {
-            type: DataTypes.STRING,
+            type: Sequelize.STRING,
             allowNull: false
         },
         orderDate: {
-            type: DataTypes.DATE,
+            type: Sequelize.DATE,
             allowNull: false
         },
         company_id: {
-            type: DataTypes.STRING,
+            type: Sequelize.STRING,
             allowNull: false
         },
         müşteri_id: {
-            type: DataTypes.STRING,
+            type: Sequelize.STRING,
             allowNull: false
         }
     });

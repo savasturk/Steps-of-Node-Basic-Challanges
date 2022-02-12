@@ -1,19 +1,17 @@
-module.exports = function(sequelize, DataTypes){
+var Sequelize = require('sequelize');
+
+module.exports = function (sequelize) {
     return sequelize.define('Company_Parameters', {
-        Id: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
         type: {
-            type: DataTypes.STRING,
+            type: Sequelize.STRING,
             allowNull: false
         },
         value: {
-            type: DataTypes.STRING,
+            type: Sequelize.STRING,
             allowNull: false
         },
         Company_id: {
-            type: DataTypes.STRING,
+            type: Sequelize.STRING,
             allowNull: false
         }
     })
