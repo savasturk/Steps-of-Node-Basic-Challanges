@@ -20,10 +20,31 @@ sequelize.sync({force: true}).then(function () {
    Order.create({
         //id: 3,
         name: 'deneme',
-        orderDate: Date.now() - 5,
+        orderDate: new Date().setDate(new Date().getDate() - 5),
         company_id: 'Corebit',
         müşteri_id: 'Turcell'
-    }).then(
+    }).then(Order.create({
+        name: 'deneme2',
+        orderDate: new Date().setDate(new Date().getDate() - 4),
+        company_id: 'Corebit',
+        müşteri_id: 'Turcell'
+    })).then(Order.create({
+        name: 'deneme3',
+        orderDate: new Date().setDate(new Date().getDate() - 3),
+        company_id: 'Corebit',
+        müşteri_id: 'Turcell'
+    })).then(Order.create({
+        name: 'deneme4',
+        orderDate: new Date().setDate(new Date().getDate() - 2),
+        company_id: 'Corebit',
+        müşteri_id: 'Turcell'
+    })).then(Order.create({
+        name: 'deneme5',
+        orderDate: new Date().setDate(new Date().getDate()),
+        company_id: 'Corebit',
+        müşteri_id: 'Turcell'
+    }))
+    .then(
         orderDetail.create({
             //id: 5,
             order_id: 3,
