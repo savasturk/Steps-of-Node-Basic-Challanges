@@ -18,54 +18,65 @@ sequelize.sync({force: true}).then(function () {
     console.log('Everything is synced!!!');
 
    Order.create({
-        //id: 3,
+        id_: 1,
         name: 'deneme',
         orderDate: new Date().setDate(new Date().getDate() - 5),
         company_id: 'Corebit',
         müşteri_id: 'Turcell'
     }).then(Order.create({
+        id_: 2,
         name: 'deneme2',
         orderDate: new Date().setDate(new Date().getDate() - 4),
         company_id: 'Corebit',
         müşteri_id: 'Turcell'
     })).then(Order.create({
+        id_: 3,
         name: 'deneme3',
         orderDate: new Date().setDate(new Date().getDate() - 3),
         company_id: 'Corebit',
         müşteri_id: 'Turcell'
     })).then(Order.create({
+        id_: 4,
         name: 'deneme4',
         orderDate: new Date().setDate(new Date().getDate() - 2),
         company_id: 'Corebit',
         müşteri_id: 'Turcell'
     })).then(Order.create({
+        id_: 5,
         name: 'deneme5',
         orderDate: new Date().setDate(new Date().getDate()),
         company_id: 'Corebit',
         müşteri_id: 'Turcell'
-    }))
-    .then(
-        orderDetail.create({
-            //id: 5,
-            order_id: 3,
-            detailDesc: 'abc',
+    })).then(orderDetail.create({
+            id_: 1,
+            detailDesc: 'abc1',
             type: 'sandalye',
             price: 300
-        }).then(
-            Company_Parameters.create({
-                //Id: 1,
+        }).then(orderDetail.create({
+            id_: 2,
+            detailDesc: 'abc2',
+            type: 'masa',
+            price: 400
+        })).then(orderDetail.create({
+            id_: 3,
+            detailDesc: 'abc3',
+            type: 'sandalye',
+            price: 500
+        })).then(orderDetail.create({
+            id_: 3,
+            detailDesc: 'abc4',
+            type: 'sandalye',
+            price: 600
+        })).
+        then(Company_Parameters.create({
                 type: 'username',
                 value: 'turcell123',
                 Company_id: 'turcell'
-            }).then(
-                Company_Parameters.create({
-                    //Id: 2,
+            }).then(Company_Parameters.create({
                     type: 'vergi_no',
                     value: '12345',
                     Company_id: 'digiturk'
-                }).then(
-                    Company_Parameters.create({
-                        //Id: 3,
+                }).then(Company_Parameters.create({
                         type: 'fiyat_limiti',
                         value: '100',
                         Company_id: 'turcell'
