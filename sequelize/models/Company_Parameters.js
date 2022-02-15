@@ -10,9 +10,13 @@ module.exports = function (sequelize) {
             type: Sequelize.STRING,
             allowNull: false
         },
-        Company_id: {
+        company_id: {
             type: Sequelize.STRING,
-            allowNull: false
+            allowNull: false,
+            reference: {
+                model: 'Order',
+                key: 'company_id'
+            },
         }
     })
 }

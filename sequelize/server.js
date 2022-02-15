@@ -13,7 +13,15 @@ const orderDetail = require('./models/orderDetail.js');*/
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-var orders = [] // Task1
+db.Order.hasMany(db.orderDetail, {foreignKey: 'id_'});
+db.orderDetail.belongsTo(db.Order, {foreignKey: 'id_'});
+
+db.Order.hasMany(db.Company_Parameters, {foreignKey: 'company_id'});
+db.Company_Parameters.belongsTo(db.Order, {foreignKey: 'company_id'});
+
+
+/*db.orderDetail.hasMany(db.Company_Parameters, {foreignKey: 'company_id'});
+db.Company_Parameters.belongsTo(db.orderDetail, {foreignKey: 'company_id'});*/
 
  app.use(bodyParser.json());
 
@@ -46,18 +54,15 @@ app.get('/orders/:id',  function(req, res) {
         }).then(function (orders) {
                 res.json(orders);
             }, function(e) {
+                console.log('case 1 - error ', e);
                 res.status(500).send();
             });
             break;
         case 2:
-            // TODO: 2 in StepG
+            // COMPLETED: 2 in StepG
             var where = {};
-            const {id} = req.params;
-            console.log('girdi');
-            db.Order.hasMany(db.orderDetail, {foreignKey: 'id_'});
-            db.orderDetail.belongsTo(db.Order, {foreignKey: 'id_'});
-            var where = {
-                type: {$like: '%' + STEP_G_2 +'%'}
+            where = {
+                type: {$like: '%' + STEP_G_2 +'%'},
             }
             db.Order.findAll({
                 attributes: ['id_', 'company_id', 'müşteri_id', 'name', 'orderDate'],
@@ -70,10 +75,83 @@ app.get('/orders/:id',  function(req, res) {
             .then(function (orders) {
                 res.json(orders);
             }, function(e) {
-                console.log('hata', e);
+                console.log('case 2 - error ', e);
+                res.status(500).send();
+            });
+            break;
+        case 3:
+            // can not defined difference between case 2 and 3
+            // TODO: will be ask this difference
+            break;
+        case 4:
+            // COMPLETED: 4 in Step G
+            var where = {};
+            var where = {
+                type: {$like: '%' + STEP_G_2 +'%'},
+                order_id: Sequelize.col('Order.id_')
+            }
+            db.orderDetail.findAll({
+                attributes: ['id_', 'detailDesc', 'type', 'price'],
+                include: {
+                    model: db.Order,
+                    attributes: [],
+                    where: {
+                        id_ : Sequelize.col('Order.id_')
+                    }
+                },
+                where: where
+            }).then(function (orderDetails) {
+                res.json(orderDetails);
+            }, function(e) {
+                console.log('case 4 - error ', e);
                 res.status(500).send();
             })
-        dafault:
+            break;
+        case 5:
+            // TODO:: 5 in Step G
+            var where = {};
+            where = {
+                type: {$like: '%' + STEP_G_2 +'%'}
+            }
+            var whereParameters = {
+                company_id: {$like: '%' + Sequelize.col('Company_Parameters.company_id') + '%'}
+            }
+            db.Order.findAll({
+                //attributes: ['id_', 'detailDesc', 'type', 'price'],
+                include: [{
+                    model: db.orderDetail,
+                    attributes: ['id_', 'detailDesc', 'type', 'price'] ,
+                    id_: Sequelize.col('Order.id_'),
+                    where: {
+                        type: {$like: '%' + STEP_G_2 +'%'}
+                    }
+
+                }/*,
+                {
+                    attributes: ['company_id', 'type'],
+                    model: db.Company_Parameters,
+                    where: {
+                        company_id: Sequelize.col('Order.company_id')
+                    }
+                }*/],
+                include: {
+                    model: db.Company_Parameters,
+                },
+                where: {
+                    company_id: Sequelize.col('Company_Parameters.company_id')
+                }
+                /*,
+                where: {
+                    company_id: Sequelize.col('Company_Parameters.company_id')
+                }*/
+            }).then(function (orders) {
+                res.json(orders);
+            }, function(e) {
+                console.log('case 5 - error ', e);
+                res.status(500).send();
+            })
+            break;
+        dafault:         
             console.log('default of request');
     }
 })
