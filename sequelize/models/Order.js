@@ -24,8 +24,7 @@ var Sequelize = require('sequelize');
             reference: {
                 model: 'Company_Parameters',
                 key: 'company_id'
-            },
-            
+            }   
         },
         müşteri_id: {
             type: Sequelize.STRING,

@@ -68,20 +68,29 @@ sequelize.sync({force: true}).then(function () {
             type: 'sandalye',
             price: 600
         })).then(Company_Parameters.create({
+            id_: 1,
             type: 'username',
             value: 'turcell123',
             company_id: 'turcell'
         }).then(Company_Parameters.create({
+            id_: 2,
             type: 'vergi_no',
             value: '12345',
             company_id: 'digiturk'
         }).then(Company_Parameters.create({
+            id_: 3,
             type: 'fiyat_limiti',
             value: '100',
             company_id: 'turcell'})
         ).then(Company_Parameters.create({
+            id_: 4,
             type: 'fiyat_limiti',
             value: '600',
+            company_id: 'Corebit'
+        })).then(Company_Parameters.create({
+            id_: 5,
+            type: 'vergi_no',
+            value: '1234',
             company_id: 'Corebit'
         }))
             )
