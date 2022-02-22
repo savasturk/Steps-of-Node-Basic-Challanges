@@ -6,7 +6,7 @@
     "configurations": [
         {
             "name": "Launch Program",
-            "program": "${workspaceFolder}/asyncWarmUp/example.js",
+            "program": "${workspaceFolder}/promise/index.js",
             "request": "launch",
             "skipFiles": [
                 "<node_internals>/**"

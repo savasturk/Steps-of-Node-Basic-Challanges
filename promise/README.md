@@ -1,1 +1,1 @@
-"helped from medium.com" 
+"helped from medium.com && thecodebarbarian.com" 
